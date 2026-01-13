@@ -2,7 +2,7 @@ import os
 import markdown
 import requests
 import time
-from auth import get_token
+from updated_auth import result
 
 
 def migrate_to_onenote (filename, section, token):
@@ -71,7 +71,7 @@ def duplicate_check(title, token):
 
 def main():
     # Get the token and login.
-    token = get_token()
+    token = result['access_token']
     if not token:
         print ("ERROR: No token found!")
         exit ()
