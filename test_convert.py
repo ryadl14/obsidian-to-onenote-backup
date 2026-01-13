@@ -1,3 +1,5 @@
+# This script was to test how to convert the files using the markdown package.
+
 import markdown
 
 text = open(r"C:\Users\ryadl\OneDrive - St. George's University Of London\Documents\Obsidian Vault\sample.md")
