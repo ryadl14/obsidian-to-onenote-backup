@@ -24,8 +24,8 @@ def migrate_to_onenote (filename, section, token, assets_path):
 	    with open(filename, "r", encoding = "utf-8") as file:
 		    text = (file.read())
     except Exception as e:
-	    print(f"Error reading file: {e}")
-	    return False
+        print(f"Error reading file: {e}")
+        return False
 
 # ------------ IMAGE HANDLING --------------- #
     #Using RegEx, extracts the embedded image filename.
@@ -134,10 +134,10 @@ def main():
                 title = basename.rsplit(".",1)[0]
 
                 # Checks when it was last uploaded.
-                currenttime = os.path.getmtime(full_path)
+                currenttime = round(os.path.getmtime(full_path),1)
 
                 # Checks if it has been recently modified against the known history.
-                if filename in history and history[filename] == currenttime:
+                if full_path in history and history[full_path] == currenttime:
                     print ("Skipping, no changes since last upload.")
                     continue
 
@@ -145,7 +145,7 @@ def main():
 
                 if success:
                     print(f"{filename} in Section: {folder_name} has been transferred!")
-                    history.update({filename:currenttime})
+                    history.update({full_path:currenttime})
                     with open ("modification_memory", "w") as f:
                         json.dump(history, f)
                     count += 1
