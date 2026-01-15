@@ -38,6 +38,7 @@ vault_path = r"C:/Users/ryadl/OneDrive.../Obsidian Vault"
 assets_path = r"C:/Users/ryadl/OneDrive.../Obsidian Vault/Assets"
 ```
 N.B. The way my Obsidian is set up, all images are stored in the Assets folder, and within the .md files, there are image links to the folder. Your set up may be different.
+
 2. Run the migration script
 ```py
 python migration.py
